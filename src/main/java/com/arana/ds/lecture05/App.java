@@ -11,6 +11,22 @@ public class App
     	printPrimes(34);
     }
     
+	public static int[][] pascalTriangle(int n){
+		int[][] pt = new int[n][];
+		for(int i = 0; i < n; i++){
+			// Construct row i
+			pt[i] = new int[i+1];
+			// Leftmost value of row i
+			pt[i][0] = 1;
+			// Sum 2 entries above
+			for(int j = 1; j < i; j++){
+				pt[i][j] = pt[i - 1][j - 1] + pt[i - 1][j];
+			}
+			pt[i][i] = 1;
+		}
+		return pt;
+	}
+    
  // For loop
     public static boolean isPrime(int n){
     	for(int divisor = 2; divisor < n; divisor++){
