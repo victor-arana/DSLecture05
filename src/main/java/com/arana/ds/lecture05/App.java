@@ -21,11 +21,25 @@ public class App
     	return true;
     }
     
- // Print all primes in range 2..n
     public static void printPrimes(int n){
+    	boolean[] prime = new boolean[n + 1];
     	int i;
+    	// Initialize the whole array to true
     	for(i = 2; i <= n; i++){
-    		if(isPrime(i)){
+    		prime[i] = true;
+    	}
+    	// all divisor that are less or equal to the 
+    	// square root of n
+    	for(int divisor = 2; divisor * divisor <= n; divisor++){
+    		if(prime[divisor]){
+    			for(i = 2*divisor; i<= n; i = i + divisor){
+    				prime[i] = false;
+    			}
+    		}
+    	}
+
+    	for(i = 2; i <= n; i++){
+    		if(prime[i]){
     			System.out.println(" " + i);
     		}
     	}
