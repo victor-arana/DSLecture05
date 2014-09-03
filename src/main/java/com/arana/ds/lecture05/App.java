@@ -11,15 +11,12 @@ public class App
     	printPrimes(34);
     }
     
-    // while loop
+ // For loop
     public static boolean isPrime(int n){
-    	int divisor = 2;
-    	while(divisor < n){
-    		// if n is divisible by divisor
+    	for(int divisor = 2; divisor < n; divisor++){
     		if(n % divisor == 0){
     			return false;
     		}
-    		divisor++;
     	}
     	return true;
     }
